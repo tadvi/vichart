@@ -1,14 +1,14 @@
-# ViChart: A Go library for SVG charts
+# ViChart: Go library for SVG charts
 
-vichart (a.k.a Vivid Chart) is simple chart toolkit designed as wrap around SVGo library. 
+vichart (a.k.a Vivid Chart) is simple chart toolkit designed as wrap around SVGo library.
 Each chart is more or less independent of other charts and might be used as stand-alone piece.
 
-The toolkit generates SVG as defined by the Scalable Vector Graphics 1.1 Specification.
-It requires SVGo library to produce charts. Get it here
+Toolkit is for Go (golang). It generates SVG as defined by the Scalable Vector Graphics 1.1 Specification
+and requires SVGo library to produce charts. Get it here
 [http://github.com/ajstarks/svgo](http://github.com/ajstarks/svgo)
 
 Some charts try to display independent information in the single screen space. Examples are
-vertical bar charts. They both show bar and line information that does not have to be related.
+vertical bar charts. They show both bar and line information that does not have to be related.
 
 ## Current State
 
