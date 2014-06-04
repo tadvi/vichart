@@ -1,4 +1,4 @@
-# ViChart: Go library for SVG charts
+# vichart: Go library for SVG charts
 
 vichart (a.k.a Vivid Chart) is simple chart toolkit designed as wrap around SVGo library.
 Each chart is more or less independent of other charts and might be used as stand-alone piece.
