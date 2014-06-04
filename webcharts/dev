@@ -1,0 +1,6 @@
+#!/bin/bash
+killall -9 webcharts
+go build .
+./webcharts &
+ps aux | grep webcharts
+sleep 1
