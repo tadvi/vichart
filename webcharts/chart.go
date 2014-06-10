@@ -7,9 +7,11 @@ import (
 	"net/http"
 	"time"
 	"vichart"
+	"strconv"
 )
 
 func main() {
+	http.Handle("/piechart", http.HandlerFunc(piechart))
 	http.Handle("/hchart", http.HandlerFunc(hchart))
 	http.Handle("/vchart", http.HandlerFunc(vchart))
 	http.Handle("/vbmultichart", http.HandlerFunc(vbmultichart))
@@ -17,6 +19,32 @@ func main() {
 	if err != nil {
 		log.Fatal("ListenAndServe:", err)
 	}
+}
+
+// piechart draws piechart.
+func piechart(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Content-Type", "image/svg+xml")
+	canvas := svg.New(w)
+	rand.Seed(int64(time.Now().Second()))
+
+	chart := vichart.PieChart{
+		Svg:	canvas,
+		Width:	650,
+		Height: 400,
+		PieValues: []int{},
+		Labels: []string{},		
+		LegendXOffset: 250,
+		GutterLeft: 40,
+		GutterTop: 40,
+	}
+	
+	for i:=0; i < 8; i++ {
+		val := rand.Intn(100)
+		chart.PieValues = append(chart.PieValues, val)
+		chart.Labels = append(chart.Labels, strconv.Itoa(val))		
+	}
+	vichart.Must(chart.Draw())	
+	
 }
 
 // vchart draws bar and line chart.
